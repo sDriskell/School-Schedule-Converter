@@ -7,7 +7,7 @@ from datetime import date
 LOC = pathlib.Path.cwd() / 'TestExcel.xlsx'
 WB = xlrd.open_workbook(LOC)
 SHEET = WB.sheet_by_index(0)
-DATE = SHEET.cell_value(rowx=1, colx=1)
+DATE = SHEET.cell_value(rowx=1, colx=2)
 
 TODAY = date.today()
 print(TODAY)
@@ -25,10 +25,7 @@ for i in range(SHEET.ncols):
 for i in range(SHEET.nrows):
     print(SHEET.cell_value(i, 0))
 
-# Extract particular row value
-#datetime = datetime.datetime(*xlrd.xldate_as_tuple(DATE, WB.datemode))
-#print(datetime)
-# print(SHEET.row_values(1))
+print(SHEET.row_values(1))
 
-
-
+DATE_as_datetime = datetime.datetime(*xlrd.xldate_as_tuple(DATE, WB.datemode))
+print(DATE_as_datetime)
