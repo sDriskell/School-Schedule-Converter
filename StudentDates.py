@@ -65,6 +65,8 @@ for i in range(i + 1, SHEET.ncols):
 
 
 class Student:
+
+    #default constructor
     def __init__(self):
         self.fName = None
         self.lName = None
@@ -76,7 +78,20 @@ class Student:
         self.testdate = None
         self.evaldate = None
 
-    #getters
+    #
+    def __init__(self, fName, lName, iep, eval, reval, aod, testdate, evaldate ):
+        self.fName = fName
+        self.lName = lName
+
+        self.iep = iep
+        self.eval = eval
+        self.reval = reval
+        self.aod = aod
+        self.testdate = testdate
+        self.evaldate = evaldate
+
+
+    #  getters
     def get_fName(self):
         return self.fName
 
