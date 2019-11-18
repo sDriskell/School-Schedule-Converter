@@ -1,21 +1,39 @@
 import Student
 from tkinter import *
+import tkinter.ttk as ttk
 
 
 def display():
     # Create blank window
     root = Tk()
+    tree = ttk.Treeview(root)
+    #
+    tree["columns"] = ("first","last","iep", "eval", "reval", "aod","testdate", "evaldate")
+    #column widths
+    #pass
+
+    #
+    tree.heading("first", text="First Name")
+    tree.heading("last", text="Last Name")
+    tree.heading("iep", text="IEP")
+    tree.heading("eval", text="Eval")
+    tree.heading("reval", text="Reval")
+    tree.heading("aod", text="AOD")
+    tree.heading("testdate", text="Test Date")
+    tree.heading("evaldate", text="Eval Date")
+
+    tree.pack()
+
 
     winLabel = Label(root, text="Kylee Driskell's Super Sceduler")
     winLabel.pack()
 
+    root.mainloop()
+
 
 def addStudent():  # move this down and build with constructor
 
-
-
     root = Tk()
-
 
     # Grid labels
     fnameLabel = Label(root, text="First Name")
@@ -67,17 +85,6 @@ def addStudent():  # move this down and build with constructor
     def create():
 
         student = Student.Student(fnameEntry.get(), lnameEntry.get(), iepEntry.get(), evalEntry.get(), revalEntry.get(), aodEntry.get(), tDEntry.get(), eDEntry.get())
-
-        """name = fnameEntry.get()
-        student.set_fName(name)
-        student.set_lName(lnameEntry.get())
-        student.set_iep(iepEntry.get())
-        student.set_eval(evalEntry.get())
-        student.set_reval(revalEntry.get())
-        student.set_aod(aodEntry.get())
-        student.set_testdate(tDEntry.get())
-        student.set_evaldate(eDEntry.get())"""
-
         student.toString()
 
     # Submit button

@@ -1,13 +1,13 @@
 import StudentDates
 import Student
-import TkinterGUI
+import TkinterGUI as GUI
 
 def main():
     #window: StudentDates.**** = StudentDates.****()
     #window.run()
 
-    TkinterGUI.addStudent()
-
+    #student = GUI.addStudent()
+    GUI.display()
 
 if __name__ == '__main__':
     main()
