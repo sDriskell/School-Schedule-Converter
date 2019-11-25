@@ -1,14 +1,9 @@
-#import StudentDates
-#import ScheduleReader
-import ReturnTest
+import Utility
 
 
 def main():
-    #window: ScheduleReader ScheduleReader = ScheduleReader.ScheduleReader()
-    #window.run()
-    number = 1
-    test = ReturnTest.ReturnTest()
-    print(test.test_pass("hi"))
+    utility: Utility.Utility = Utility.Utility()
+    utility.read_list()
 
 
 if __name__ == '__main__':
