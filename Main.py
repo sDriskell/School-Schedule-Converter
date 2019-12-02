@@ -3,13 +3,9 @@ import Utility
 
 def main():
     utility: Utility.Utility = Utility.Utility()
-    due_dates = utility.read_list()
-    student_names = utility.read_names()
-
-    test_write = utility.write_list()
-
-    print(due_dates)
-    print(student_names)
+    utility.read_list()
+    utility.read_names()
+    utility.write_list()
 
 
 if __name__ == '__main__':
