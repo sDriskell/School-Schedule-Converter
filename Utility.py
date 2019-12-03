@@ -24,21 +24,6 @@ class Utility:
             for i in range(i + 3, self.sheet.ncols):
                 test_date = self.sheet.cell_value(j, i) - self.currentDate
                 self.countList[j][i] = test_date
-                # Test different conditions to determine state
-                if self.sheet.cell_value(j, i) > self.currentDate:
-                    if test_date > 45:
-                        print("You are over 45 days out.")
-                        print(test_date)
-                    elif test_date > 30:
-                        print("You are over 30 days out.")
-                        print(test_date)
-                    elif test_date <= 30:
-                        print("You are under 30 days out.")
-                        print(test_date)
-                if self.sheet.cell_value(j, i) <= self.currentDate:
-                    print("You are overdue by: ")
-                    print(test_date)
-            print("-----------------------------------------\n")
         self.countList.pop(0)
 
     def read_names(self):
@@ -49,7 +34,6 @@ class Utility:
                 sheet_name = self.sheet.cell_value(j, i)
                 self.nameList[j][i] = sheet_name
         self.nameList.pop(0)
-        # return self.nameList
 
     def write_list(self):
         write_workbook = xlsxwriter.Workbook('OutputStudents.xlsx')
@@ -61,25 +45,28 @@ class Utility:
         row = 0
         col = 0
 
+        for d1, d2, d3, d4, d5, d6, d7, d8, d9, date in self.countList:
+            write_worksheet.write(row, col + 0, d1)
+            write_worksheet.write(row, col + 1, d2)
+            write_worksheet.write(row, col + 2, d3)
+            write_worksheet.write(row, col + 3, d4)
+            write_worksheet.write(row, col + 4, d5)
+            write_worksheet.write(row, col + 5, d6)
+            write_worksheet.write(row, col + 6, d7)
+            write_worksheet.write(row, col + 7, d8)
+            write_worksheet.write(row, col + 8, d9)
+            row += 1
+
+
+        row = 0
+        col = 0
+
         for last, first, impair in self.nameList:
             write_worksheet.write(row, col+0, last)
             write_worksheet.write(row, col+1, first)
             write_worksheet.write(row, col+2, impair)
             row += 1
 
-        row = 0
-
-        for d1, d2, d3, d4, d5, d6, d7, d8, d9, date in self.countList:
-            write_worksheet.write(row, col + 3, d1)
-            write_worksheet.write(row, col + 4, d2)
-            write_worksheet.write(row, col + 5, d3)
-            write_worksheet.write(row, col + 6, d4)
-            write_worksheet.write(row, col + 7, d5)
-            write_worksheet.write(row, col + 8, d6)
-            write_worksheet.write(row, col + 9, d7)
-            write_worksheet.write(row, col + 10, d8)
-            write_worksheet.write(row, col + 11, d9)
-            row += 1
 
         write_workbook.close()
 
