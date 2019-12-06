@@ -6,6 +6,9 @@ def main():
     utility.read_list()
     utility.read_names()
     utility.write_list()
+    
+    #GUI
+    GUI.display()
 
 
 if __name__ == '__main__':
