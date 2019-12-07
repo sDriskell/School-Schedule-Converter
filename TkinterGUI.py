@@ -2,7 +2,8 @@ import xlrd
 import pathlib
 from tkinter import *
 import tkinter.ttk as ttk
-from PIL import Image, ImageTk
+import Util
+#from PIL import Image, ImageTk
 
 def display():
 
@@ -54,10 +55,12 @@ def display():
         last = outputSheet.cell_value(rowx=i, colx=0)
         aod = outputSheet.cell_value(rowx=i, colx=2)
         #string dates
-        iep = inputSheet.cell_value(rowx=i, colx=3)
-        meet = inputSheet.cell_value(rowx=i, colx=4)
-        eval = inputSheet.cell_value(rowx=i, colx=5)
-        reval = inputSheet.cell_value(rowx=i, colx=6)
+
+
+        iep = Util.toDate(rowx=i, colx=3)
+        meet = Util.toDate(rowx=i, colx=4)
+        eval = Util.toDate(rowx=i, colx=5)
+        reval = Util.toDate(rowx=i, colx=6)
 
         # days until dates
         dtIep = outputSheet.cell_value(rowx=i, colx=3)
@@ -101,11 +104,11 @@ def display():
     tree.pack()
 
     #something extra
-    load = Image.open("unicorn.png")
-    render = ImageTk.PhotoImage(load)
+    #load = Image.open("unicorn.png")
+    #render = ImageTk.PhotoImage(load)
 
-    bottomPanel = Label(root, image=render)
-    bottomPanel.pack()
+    #bottomPanel = Label(root, image=render)
+    #bottomPanel.pack()
 
 
 
